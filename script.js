@@ -1,3 +1,5 @@
+import { createProfile } from './album.js';
+
 const searchForm = document.querySelector('#searchForm');
 const mainContent = document.querySelector('#vinylShelf');
 
