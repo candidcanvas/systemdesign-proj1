@@ -1,4 +1,4 @@
-import { createProfile } from './album.js';
+// import { createProfile } from './album.js';
 
 const searchForm = document.querySelector('#searchForm');
 const mainContent = document.querySelector('#vinylShelf');
@@ -34,7 +34,8 @@ const displayResults = (results) => {
             div.classList.add('result');
 
             div.innerHTML =
-                '<img src="' + result.cover_medium + '" alt="' + result.title + '"/>'
+                '<img src="' + result.cover_medium + '" alt="' + result.title + '" style="cursor:pointer"/>';
+
             mainContent.appendChild(div);
         })
     } else {
