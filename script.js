@@ -34,8 +34,28 @@ const displayResults = (results) => {
             div.classList.add('result');
 
             div.innerHTML =
-                '<img src="' + result.cover_medium + '" alt="' + result.title + '" style="cursor:pointer"/>';
+                '<img src="' + result.cover_medium + '" alt="' + result.title + '" style="cursor:pointer" width="200px"/>';
 
+            // click event for popover
+            div.querySelector('img').addEventListener('click', async (e) => {
+                // remove existing popovers
+                const oldPopovers = document.querySelector('.popover');
+                if (oldPopover) oldPopovers.remove();
+
+                // fetch tracklist details
+                const albumUrl = 'https://corsproxy.io/?url=https://api.deezer.com/album/${result.id}/tracks';
+                let tracks = [];
+                try {
+                    const res = await fetch(albumUrl);
+                    const data = await res.json();
+                    tracks = data.tracks?.data || [];
+                } catch (err) {
+                    tracks = [];
+                }
+
+                // create popover
+                
+            });
             mainContent.appendChild(div);
         })
     } else {
