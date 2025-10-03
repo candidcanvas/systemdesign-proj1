@@ -23,17 +23,39 @@ searchForm.addEventListener("submit", event => {
             displayResults(response.data);
         })
         .catch(err => console.error(err));
+
+    
 });
 
 // display results
 const displayResults = (results) => {
     mainContent.innerHTML = '';
     if (results) {
-        results.forEach(result => {
+        results.forEach(async result => {
             const popoverId = `popover-${result.id}`;
+            const today = new Date();
+            const formatted = today.toISOString().slice(0, 10);
+            console.log(formatted);
 
             let div = document.createElement('div');
             div.classList.add('result');
+
+            // fetch tracks for each album
+            let trackTitles = '';
+            try {
+                const tracklistUrl = `https://corsproxy.io/?url=https://api.deezer.com/album/${result.id}/tracks`;
+                const response = await fetch(tracklistUrl);
+                const data = await response.json();
+                if (data.data && Array.isArray(data.data)) {
+                    trackTitles = data.data.map(track => `<li>${track.title}</li>`).join('');
+
+                } else {
+                    trackTitles = '<li>No tracks found</li>';
+                }
+            } catch (err) {
+                trackTitles = '<li>Error fetching tracks</li>';
+            }
+            console.log(trackTitles);
 
             let template =
                 `<button id="display" class="open" popoverTarget="${result.id}" >
@@ -43,16 +65,56 @@ const displayResults = (results) => {
 
                 <div popover id="${result.id}">
                     <div class="profile">
-                        <p>Loading...</p>
+                        <h2>Java & Jive</h2>
+
+                        <button class="close" popoverTarget="${result.id}">< BACK TO SHELF</button>
+
+                        <p>${formatted}</p>
+
+                        <div class="line"></div>
+
+                        <div class="title">
+                            <p>Title:</p>
+                            <p>${result.title}</p>
+                        </div>
+
+                       <div class="line"></div>
+
+                       <div class="songs">
+                            <ol>
+                                ${trackTitles}
+                            </ol>
+                       </div>
+
+                       <div class="line"></div>
+
+                       <div class="total">
+                            <p>ITEM COUNT:</p>
+                            insert total here
+                        </div>
+
+                        <h3>Thank you for visiting!</h3>
+                        <a href="${result.link}">Listen on Deezer</a>
+
                     </div>
                 </div>`;
             div.innerHTML = template;
 
             // div.querySelector(`#${popoverId}`)
-            //     .addEventListener('toggle', async (event) => {
-            //         if (event.newState == open) {
-            //             event.target.innerHTML = await createProfile(result.id);
-            //         }
+            //     .addEventListener('click', async (event) => {
+            //         // if (event.newState == open) {
+            //         //     event.target.innerHTML = await createProfile(result.id);
+            //         // }
+
+            //         // let trackTemplate = 
+            //         // `<div class="tracks">
+            //         //     <h2>${result.title}</h2>
+            //         // </div>`;
+
+            //         // document.getElementById('tracklist').innerHTML = trackTemplate;
+            //         console.log('click' + event); 
+
+                    
             //     });
                             
             mainContent.appendChild(div);
