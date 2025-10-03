@@ -30,14 +30,14 @@ const displayResults = (results) => {
     mainContent.innerHTML = '';
     if (results) {
         results.forEach(result => {
-            // const popoverId = `popover-${result.id}`;
+            const popoverId = `popover-${result.id}`;
 
             let div = document.createElement('div');
             div.classList.add('result');
 
             let template =
-                `<button class="open" popoverTarget="${result.id}" >
-                    <img src="${result.cover_medium}" alt="${result.title}" style="cursor:pointer" width="200px"/>
+                `<button id="display" class="open" popoverTarget="${result.id}" >
+                    <img src="${result.cover_medium}" alt="${result.title}" style="cursor:pointer" width="150px"/>
                     <div class="shelf"></div>
                 </button>
 
@@ -47,6 +47,13 @@ const displayResults = (results) => {
                     </div>
                 </div>`;
             div.innerHTML = template;
+
+            // div.querySelector(`#${popoverId}`)
+            //     .addEventListener('toggle', async (event) => {
+            //         if (event.newState == open) {
+            //             event.target.innerHTML = await createProfile(result.id);
+            //         }
+            //     });
                             
             mainContent.appendChild(div);
         });
