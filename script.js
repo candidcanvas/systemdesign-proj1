@@ -47,7 +47,11 @@ const displayResults = (results) => {
                 const response = await fetch(tracklistUrl);
                 const data = await response.json();
                 if (data.data && Array.isArray(data.data)) {
-                    trackTitles = data.data.map(track => `<li>${track.title}</li>`).join('');
+                    trackTitles = data.data.map(track => {
+                        const minutes = Math.floor(track.duration / 60);
+                        const seconds = String(track.duration % 60).padStart(2, '0');
+                        return `<li>${track.title} ${minutes}:${seconds}</li>`;
+                    }).join('');
 
                 } else {
                     trackTitles = '<li>No tracks found</li>';
