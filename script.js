@@ -103,23 +103,6 @@ const displayResults = (results) => {
                     </div>
                 </div>`;
             div.innerHTML = template;
-
-            // div.querySelector(`#${popoverId}`)
-            //     .addEventListener('click', async (event) => {
-            //         // if (event.newState == open) {
-            //         //     event.target.innerHTML = await createProfile(result.id);
-            //         // }
-
-            //         // let trackTemplate = 
-            //         // `<div class="tracks">
-            //         //     <h2>${result.title}</h2>
-            //         // </div>`;
-
-            //         // document.getElementById('tracklist').innerHTML = trackTemplate;
-            //         console.log('click' + event); 
-
-                    
-            //     });
                             
             mainContent.appendChild(div);
         });
