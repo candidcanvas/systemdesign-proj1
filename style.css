@@ -5,12 +5,11 @@ html {
 }
 
 body {
-
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     margin: 100px 150px;
     font-family: Arial, sans-serif;
-    background-image: url(background.jpeg);
+    background-image: url(background.jpeg); /* Photo by Creative_Bird on Adobe Stock */
     background-repeat: no-repeat;
     background-size: 125em;
     background-position-x: center;

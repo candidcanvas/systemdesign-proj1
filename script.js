@@ -39,7 +39,7 @@ const displayResults = (results) => {
 
             // fetch tracks for each album
             let trackTitles = '';
-            // lines 42-60 from using Co-Pilot to help fetch tracklist information
+            // lines 42-67 from using Co-Pilot to help fetch tracklist information
             try {
                 const tracklistUrl = `https://corsproxy.io/?url=https://api.deezer.com/album/${result.id}/tracks`;
                 const response = await fetch(tracklistUrl);
