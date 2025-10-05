@@ -49,7 +49,13 @@ const displayResults = (results) => {
                     trackTitles = data.data.map(track => {
                         const minutes = Math.floor(track.duration / 60);
                         const seconds = String(track.duration % 60).padStart(2, '0');
-                        return `<li>${track.title} ${minutes}:${seconds}</li>`;
+                        return `
+                        <li>
+                            <div style="display: flex; justify-content: space-between; gap: 20px; width: 100%;">
+                                <span>${track.title}</span> 
+                                <span>${minutes}:${seconds}</span>
+                            </div>
+                        </li>`;
                     }).join('');
 
                 } else {
@@ -72,7 +78,7 @@ const displayResults = (results) => {
                     <div class="profile">
                         <h2>Java & Jive</h2>
 
-                        <button class="close" popoverTarget="${result.id}">< BACK TO SHELF</button>
+                        <button class="close" popoverTarget="${result.id}" style="cursor:pointer">< BACK TO SHELF</button>
 
                         <p>${formatted}</p>
 
@@ -98,8 +104,10 @@ const displayResults = (results) => {
                             <p>${totalTracks}</p>
                         </div>
 
-                        <h3>Thank you for visiting!</h3>
-                        <a href="${result.link}">Listen on Deezer</a>
+                        <div class="thanks">
+                            <h3>Thank you for visiting!</h3>
+                            <a href="${result.link}">Listen on Deezer</a>
+                        </div>
 
                     </div>
                 </div>`;
