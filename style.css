@@ -5,10 +5,16 @@ html {
 }
 
 body {
+
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     margin: 100px 150px;
     font-family: Arial, sans-serif;
+    background-image: url(background.jpeg);
+    background-repeat: no-repeat;
+    background-size: 125em;
+    background-position-x: center;
+    background-position-y: 15%;
 }
 
 header {
@@ -23,6 +29,7 @@ header {
 
 header h1 {
     margin: 0;
+    text-shadow: 0 4px 4px rgba(0,0,0,0.2);
 }
 
 form {
@@ -39,6 +46,7 @@ form {
     background: #C5E5E8;
     color: #32292F;
     font-size: 1.1em;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
 }
 
 #searchText::placeholder {
@@ -53,6 +61,7 @@ form {
     color: white;
     font-size: 2em;
     cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
 }
 
 #searchButton:active {
@@ -73,18 +82,37 @@ form {
     background-color: transparent;
 }
 
+#display:hover .sleeve {
+    transform: translateY(-10px); 
+}
+
+.sleeve {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
 .shelf{
     height: 16px;
     width: 170px;
     background-color: #CE8147;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+[popover] {
+    border-style: none;
+    background-color: transparent;
+    transform: rotate(-3deg);
 }
 
 .profile {
     width: 320px;
     display: flex;
     flex-direction: column;
-    margin: 35px 20px 40px;
+    padding: 35px 20px 40px;
     font-family: "Space Mono", monospace;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    z-index: 2;
 }
 
 .line {

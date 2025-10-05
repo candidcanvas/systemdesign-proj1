@@ -69,7 +69,7 @@ const displayResults = (results) => {
             let template =
                 `<button id="display" class="open" popoverTarget="${result.id}">
                     <div class="item">
-                        <img src="${result.cover_medium}" alt="${result.title}" style="cursor:pointer" width="150px"/>
+                        <img class="sleeve" src="${result.cover_medium}" alt="${result.title}" style="cursor:pointer" width="150px"/>
                         <div class="shelf"></div>
                     </div>
                 </button>
