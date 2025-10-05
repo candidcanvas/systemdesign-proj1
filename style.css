@@ -1,0 +1,88 @@
+html {
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+}
+
+body {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin: 100px 150px;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    text-transform: uppercase;
+    grid-column: 4 / span 6;
+    font-size: 2.5em;
+    font-weight: bold;
+    letter-spacing: -4px;
+    color: #32292F;
+}
+
+header h1 {
+    margin: 0;
+}
+
+form {
+    grid-column: 5 / span 4;
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#searchText {
+    padding: 20px;
+    border-style: none;
+    border-radius: 50px;
+    background: #C5E5E8;
+    color: #32292F;
+    font-size: 1.1em;
+}
+
+#searchText::placeholder {
+    color: #70ABAF;
+    font-style: italic;
+}
+
+#searchButton {
+    border-style: none;
+    border-radius: 50px;
+    background-color: #70ABAF;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+#searchButton:active {
+    background-color: #5A7B7D;
+}
+
+#vinylShelf {
+    grid-column: 2 / span 10;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+#display {
+    border-style: none;
+    background-color: transparent;
+}
+
+.shelf{
+    height: 16px;
+    width: 170px;
+    background-color: #CE8147;
+}
+
+footer {
+    text-align: center;
+    grid-column: 4 / span 6;
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #32292F;
+}

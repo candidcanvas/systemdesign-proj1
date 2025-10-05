@@ -1,9 +1,7 @@
-// import { createProfile } from './receipt.js';
-
 const searchForm = document.querySelector(`#searchForm`);
 const mainContent = document.querySelector(`#vinylShelf`);
 
-// form submission event listener
+// form submission event listener, lines 5-24 based on Harold Sikkema's IMDB search example
 searchForm.addEventListener("submit", event => {
     event.preventDefault();
 
@@ -23,13 +21,12 @@ searchForm.addEventListener("submit", event => {
             displayResults(response.data);
         })
         .catch(err => console.error(err));
-
-    
 });
 
 // display results
 const displayResults = (results) => {
     mainContent.innerHTML = '';
+    // lines 30-32, 37-38 based on Harold Sikkema's Pokémon Types example
     if (results) {
         results.forEach(async result => {
             const popoverId = `popover-${result.id}`;
@@ -42,11 +39,13 @@ const displayResults = (results) => {
 
             // fetch tracks for each album
             let trackTitles = '';
+            // lines 42-60 from using Co-Pilot to help fetch tracklist information
             try {
                 const tracklistUrl = `https://corsproxy.io/?url=https://api.deezer.com/album/${result.id}/tracks`;
                 const response = await fetch(tracklistUrl);
                 const data = await response.json();
                 if (data.data && Array.isArray(data.data)) {
+                    totalTracks = data.data.length;
                     trackTitles = data.data.map(track => {
                         const minutes = Math.floor(track.duration / 60);
                         const seconds = String(track.duration % 60).padStart(2, '0');
@@ -62,9 +61,11 @@ const displayResults = (results) => {
             console.log(trackTitles);
 
             let template =
-                `<button id="display" class="open" popoverTarget="${result.id}" >
-                    <img src="${result.cover_medium}" alt="${result.title}" style="cursor:pointer" width="150px"/>
-                    <div class="shelf"></div>
+                `<button id="display" class="open" popoverTarget="${result.id}">
+                    <div class="item">
+                        <img src="${result.cover_medium}" alt="${result.title}" style="cursor:pointer" width="150px"/>
+                        <div class="shelf"></div>
+                    </div>
                 </button>
 
                 <div popover id="${result.id}">
@@ -94,7 +95,7 @@ const displayResults = (results) => {
 
                        <div class="total">
                             <p>ITEM COUNT:</p>
-                            insert total here
+                            <p>${totalTracks}</p>
                         </div>
 
                         <h3>Thank you for visiting!</h3>
