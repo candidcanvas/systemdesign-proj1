@@ -1,5 +1,5 @@
 # JAVA & JIVE
-Welcome to Java & Jive - an online vinyl café experience where you can browse all your favourite artists and albums endlessly. 🎶
+Welcome to Java & Jive - an online vinyl café desktop web app experience where you can browse all your favourite artists and albums endlessly. 🎶
 
 You're welcome to step in and search for any artist or record of your liking - we'll have it on display ready for you to view! Select any record available, and we'll print out a receipt for your choice, showing you all the tracks you were looking for. Thanks to Deezer, you can listen to these songs at your pleasant convenience. Come and stay while, enjoy some matcha and music with us 🍵
 
