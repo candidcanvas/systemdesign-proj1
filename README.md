@@ -4,4 +4,5 @@ Welcome to Java & Jive - an online vinyl café experience where you can browse a
 
 
 *System Design Project 1: Dynamic Data and Third-Party APIs*
+
 *Built and designed by Breana Velasco, data fetched from Deezer API*
