@@ -5,6 +5,8 @@ You're welcome to step in and search for any artist or record of your liking - w
 
 Thanks for stopping by our little café in this corner of the worldwide web! Hope to see you again soon :D
 
+
+
 *System Design Project 1: Dynamic Data and Third-Party APIs*
 
 *Built and designed by Breana Velasco, data fetched from Deezer API*
