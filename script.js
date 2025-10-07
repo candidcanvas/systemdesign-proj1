@@ -1,7 +1,7 @@
 const searchForm = document.querySelector(`#searchForm`);
 const mainContent = document.querySelector(`#vinylShelf`);
 
-// form submission event listener, lines 5-24 based on Harold Sikkema's IMDB search example
+// form submission event listener, lines 5-24 based on Harold Sikkema's IMDB search example https://github.com/ixd-system-design/UI-for-Data-Fetching/blob/main/movies/script.js
 searchForm.addEventListener("submit", event => {
     event.preventDefault();
 
@@ -26,7 +26,7 @@ searchForm.addEventListener("submit", event => {
 // display results
 const displayResults = (results) => {
     mainContent.innerHTML = '';
-    // lines 30-32, 37-38 based on Harold Sikkema's Pokémon Types example
+    // lines 30-32, 37-38 based on Harold Sikkema's Pokémon Types example https://github.com/ixd-system-design/PokemonTypes/blob/main/listings.js
     if (results) {
         results.forEach(async result => {
             const popoverId = `popover-${result.id}`;
@@ -114,6 +114,7 @@ const displayResults = (results) => {
 
                     </div>
                 </div>`;
+            // wordmark from Deezer Brand https://deezerbrand.com/document/37#/-/logo
             div.innerHTML = template;
             
             // lines 120-122 from using Co-Pilot to help add event listener for external link button
