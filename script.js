@@ -106,7 +106,7 @@ const displayResults = (results) => {
 
                         <div class="thanks">
                             <h3>Thank you for visiting!</h3>
-                            <button class="link" src="${result.link}">
+                            <button class="link">
                                 <p>Listen on</p>
                                 <img src="Wordmark-mb-rgb.png" alt="Deezer" width="80px"/>
                             </button>
@@ -115,11 +115,16 @@ const displayResults = (results) => {
                     </div>
                 </div>`;
             div.innerHTML = template;
-                            
+            
+            // lines 120-122 from using Co-Pilot to help add event listener for external link button
+            div.querySelector('.link').addEventListener('click', () => {
+                window.open(result.link, '_blank');
+            });
+
             mainContent.appendChild(div);
         });
 
     } else {
-        mainContent.innerHTML = `<p>No results found</p>`;
+        mainContent.innerHTML = `<p>Looks like that's not on our shelves...</p>`;
     }
 }

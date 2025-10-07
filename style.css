@@ -21,26 +21,33 @@ header {
 }
 
 header h1 {
-    font-size: 5em;
-    font-weight: bold;
-    padding-top: 50px;
-    margin: 0;
-    letter-spacing: -4px;
+    font-family: "Nanum Pen Script", cursive;
+    font-size: 7em;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1em;
+    margin-top: 20px;
+    margin-bottom: 0;
+    letter-spacing: -5px;
     text-transform: uppercase;
     text-shadow: 0 4px 4px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 
-header h3 {
+header h3 { 
+    position: relative;
+    /* top: -10px; */
     margin-top: 0;
     font-weight: normal;
     letter-spacing: -0.5px;
+    z-index: 2;
 }
 
 form {
     grid-column: 5 / span 4;
     display: flex;
     gap: 10px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 
 #searchText {
