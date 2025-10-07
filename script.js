@@ -69,7 +69,7 @@ const displayResults = (results) => {
             let template =
                 `<button id="display" class="open" popoverTarget="${result.id}">
                     <div class="item">
-                        <img class="sleeve" src="${result.cover_medium}" alt="${result.title}" style="cursor:pointer" width="150px"/>
+                        <img class="sleeve" src="${result.cover_medium}" alt="${result.title}" style="cursor:pointer"/>
                         <div class="shelf"></div>
                     </div>
                 </button>
@@ -106,7 +106,10 @@ const displayResults = (results) => {
 
                         <div class="thanks">
                             <h3>Thank you for visiting!</h3>
-                            <a href="${result.link}">Listen on Deezer</a>
+                            <button class="link" src="${result.link}">
+                                <p>Listen on</p>
+                                <img src="Wordmark-mb-rgb.png" alt="Deezer" width="80px"/>
+                            </button>
                         </div>
 
                     </div>
